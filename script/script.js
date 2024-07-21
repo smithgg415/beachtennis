@@ -26,23 +26,3 @@ $('#carouselPatrocinadores').carousel({
 
             window.getSelection().removeAllRanges();
         });
-        //codigo da tela thanks.html
-        
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const form = event.target;
-            
-            fetch(form.action, {
-                method: form.method,
-                body: new FormData(form),
-            }).then(response => {
-                if (response.ok) {
-                    window.location.href = 'thanks.html';
-                } else {
-                    alert('Ocorreu um erro ao enviar a inscrição.');
-                }
-            }).catch(error => {
-                alert('Ocorreu um erro ao enviar a inscrição.');
-                console.error(error);
-            });
-        });
