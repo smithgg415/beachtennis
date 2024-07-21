@@ -9,12 +9,20 @@ $('#carouselPatrocinadores').carousel({
             $('#confirmationModal').modal('show');
         });
 
-       
-        document.getElementById('copyPixButton').addEventListener('click', function() {
-            var pixKey = document.getElementById('pix-key').innerText;
-            navigator.clipboard.writeText(pixKey).then(function() {
-                alert('Chave PIX copiada para a área de transferência!');
-            }, function(err) {
-                console.error('Erro ao copiar a chave PIX: ', err);
-            });
+        document.getElementById('copyPixButton').addEventListener('click', function () {
+            const pixKeyElement = document.getElementById('pix-key');
+            const range = document.createRange();
+            range.selectNode(pixKeyElement);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            try {
+                const successful = document.execCommand('copy');
+                const msg = successful ? 'successful' : 'unsuccessful';
+                alert('Chave PIX copiada ' + msg);
+            } catch (err) {
+                console.error('Falha ao copiar a chave PIX: ', err);
+            }
+
+            window.getSelection().removeAllRanges();
         });
