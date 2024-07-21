@@ -4,7 +4,7 @@ $('#carouselPatrocinadores').carousel({
     wrap: true
 });
 //codigo da tela inscricao.html
-        $('form').on('submit', function (event) {
+        document.getElementById('registrationForm').addEventListener('submit', function (event) {
             event.preventDefault();
             $('#confirmationModal').modal('show');
         });

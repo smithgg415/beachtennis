@@ -57,56 +57,94 @@ body {
     }
 }
 
-/*Código da tela inscrição.html*/
-.topbar {
-    background-color: #007bff;
-    color: white;
-    padding: 15px;
-    text-align: center;
-}
+/*Código da tela inscrição.html*/.topbar {
+            background-color: #007bff;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
 
-.form-container {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+        .container {
+            margin-top: 30px;
+        }
 
-.footer {
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-}
+        .form-container,
+        .qr-code-container {
+            height: 430px;
+            background-color: #e9ecef;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
 
-.footer p {
-    margin: 0;
-}
+        .qr-code {
+            text-align: center;
+        }
 
-.btnWpp {
-    background-color: #25D366;
-    border: none;
-}
+        .qr-code img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
 
-.btnWpp a {
-    color: white;
-    text-decoration: none;
-}
+        .qr-code p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
 
-.btnComeBack {
-    background-color: #007bff;
-    color: white;
-    border: none;
-}
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
 
-.btnComeBack a {
-    color: white;
-    text-decoration: none;
-}
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
 
-.btnComeBack:hover {
-    background-color: #0056b3;
-}
+        .btnWpp {
+            position: relative;
+            top: 50px;
+            background-color: #00bb2d;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .btnWpp:hover {
+            background-color: #25D366;
+        }
+
+        .footer {
+            width: 100%;
+            height: 50px;
+        }
+
+        .msg {
+            left: 5px;
+            font-family: arial;
+            font-size: 20px;
+            position: relative;
+            top: 50px;
+        }
+
+        .btnComeBack {
+            position: fixed;
+            background-color: #007bff;
+            bottom: 70px;
+            right: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        .btnComeBack a {
+            text-decoration: none;
+            color: white;
+        }
+
+        #pix-key {
+            display: none;
+        }
