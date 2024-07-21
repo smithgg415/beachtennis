@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição - Torneio de Beach Tennis Piquerobi</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="topbar">
+        <h3>Beach Tennis Piquerobi</h3>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center mb-5">Faça sua inscrição</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-container">
+                    <form action="https://formspree.io/f/xeojeojb" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="nome"><i class="bi bi-person-fill"></i> Nome</label>
+                            <input type="text" class="form-control" id="nome" name="nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone"><i class="bi bi-telephone-fill"></i> Telefone</label>
+                            <input type="tel" class="form-control" id="telefone" name="telefone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="comprovante"><i class="bi bi-upload"></i> Comprovante do Pix</label>
+                            <input type="file" class="form-control-file" id="comprovante" name="comprovante" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-check-circle-fill"></i> Confirmar Inscrição</button>
+                    </form>
+                    <div>
+                    <button class="btnWpp"><a href="#"><i class="bi bi-whatsapp text-light"></i></a></button><span class="msg">Está tendo problemas? Me envie uma mensagem!</span></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="qr-code-container" id="chavePix">
+                    <div class="qr-code">
+                        <img src="https://th.bing.com/th/id/OIP.djq8yFpI1vPAhQVPuniAlwHaHa?w=171&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="QR Code para Pix">
+                        <p><strong>CHAVE PIX:</strong> 563.562.668-80</p>
+                        <p><strong>Luís Felipe Giacomelli Rodrigues</strong></p>
+                        <p><strong>R$20,00</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Inscrição Confirmada</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Os comprovantes serão analisados, caso seja falso, a inscrição será cancelada!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<footer class="footer bg-secondary"></footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+/*Código da tela inscritos.html*/
+body {
+    font-family: Arial, sans-serif;
+}
+
+.topbar {
+    background-color: #007bff;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+.table-container {
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.update-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.table thead th {
+    background-color: #007bff;
+    color: white;
+}
+
+.table tbody tr {
+    transition: background-color 0.3s;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.footer {
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0px;
+}
