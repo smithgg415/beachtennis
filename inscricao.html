@@ -46,14 +46,14 @@
                                 <a href="https://w.app/RCjyvA" class="text-light"><i class="bi bi-whatsapp"
                                         style="font-size: 30px;"></i></a>
                             </button>
-                            <span class="msg">Está tendo
-                                problemas?</span>
+                            <span class="msg">Está tendo problemas?</span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="qr-code-container">
+                <div class="qr-code-container"
+                    style="background-color: #e9ecef; border-radius: 20px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); padding: 20px; margin-bottom: 20px;">
                     <div class="qr-code">
                         <img src="images/qrcode.png" alt="QR Code para Pix" width="250px" height="250px">
                         <p><strong>CHAVE PIX:</strong></p>
@@ -79,7 +79,17 @@
         <a href="index.html" style="text-decoration: none; color: white;"><i class="bi bi-arrow-left-short mr-3"></i>
             VOLTAR</a>
     </button>
-    <script src="script/script.js"></script>
+    
+    <script>
+        document.getElementById('copyPixButton').addEventListener('click', function() {
+            var pixKey = document.getElementById('pix-key').innerText;
+            navigator.clipboard.writeText(pixKey).then(function() {
+                alert('Chave PIX copiada para a área de transferência!');
+            }, function(err) {
+                alert('Falha ao copiar a chave PIX: ' + err);
+            });
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
