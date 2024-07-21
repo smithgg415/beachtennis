@@ -57,94 +57,101 @@ body {
     }
 }
 
-/*Código da tela inscrição.html*/.topbar {
-            background-color: #007bff;
-            padding: 10px;
-            color: white;
-            text-align: center;
-        }
+/*Código da tela inscrição.html*/
 
-        .container {
-            margin-top: 30px;
-        }
+.topbar {
+    background-color: #007bff;
+    padding: 10px;
+    color: white;
+    text-align: center;
+}
 
-        .form-container,
-        .qr-code-container {
-            height: 430px;
-            background-color: #e9ecef;
-            border-radius: 20px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-        }
+.container {
+    margin-top: 30px;
+}
 
-        .qr-code {
-            text-align: center;
-        }
+.form-container,
+.qr-code-container {
+    height: 430px;
+    background-color: #e9ecef;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
 
-        .qr-code img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
+.qr-code {
+    text-align: center;
+}
 
-        .qr-code p {
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
+.qr-code img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
 
-        .btn-primary {
-            background-color: #007bff;
-            border: none;
-        }
+.qr-code p {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
 
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
 
-        .btnWpp {
-            position: relative;
-            top: 50px;
-            background-color: #00bb2d;
-            width: 50px;
-            height: 50px;
-            border: none;
-            border-radius: 15px;
-            color: white;
-        }
+.btn-primary:hover {
+    background-color: #0056b3;
+}
 
-        .btnWpp:hover {
-            background-color: #25D366;
-        }
+.btnWpp {
+    position: relative;
+    top: 50px;
+    background-color: #00bb2d;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+}
 
-        .footer {
-            width: 100%;
-            height: 50px;
-        }
+.btnWpp:hover {
+    background-color: #25D366;
+}
 
-        .msg {
-            left: 5px;
-            font-family: arial;
-            font-size: 20px;
-            position: relative;
-            top: 50px;
-        }
+.footer {
+    width: 100%;
+    height: 50px;
+}
 
-        .btnComeBack {
-            position: fixed;
-            background-color: #007bff;
-            bottom: 70px;
-            right: 10px;
-            padding: 10px;
-            border: none;
-            border-radius: 10px;
-        }
+.msg {
+    left: 5px;
+    font-family: arial;
+    font-size: 20px;
+    position: relative;
+    top:10px;
+    
+}
 
-        .btnComeBack a {
-            text-decoration: none;
-            color: white;
-        }
+.btnComeBack {
+    position: fixed;
+    background-color: #007bff;
+    bottom: 70px;
+    right: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+}
 
-        #pix-key {
-            display: none;
-        }
+.btnComeBack a {
+    text-decoration: none;
+    color: white;
+}
+
+#pix-key {
+    display: none;
+}
+.cont-wpp{
+    display:flex;
+    flex-direction:row;
+}
