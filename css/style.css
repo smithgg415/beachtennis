@@ -42,14 +42,12 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    /* Ajuste a opacidade e cor do filtro */
     z-index: 1;
 }
 
 .background-image>* {
     position: relative;
     z-index: 2;
-    /* Garante que o conteúdo fique sobre o filtro */
 }
 
 @media (max-width: 768px) {
