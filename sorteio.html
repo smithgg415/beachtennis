@@ -7,7 +7,57 @@
     <title>Torneio de Beach Tennis Piquerobi</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/sorteio.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+            /* Evita a barra de rolagem horizontal */
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        #resultado {
+            margin-top: 20px;
+        }
+
+        .topbar {
+            background-color: #007bff;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        .footer {
+            margin-top: auto;
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #countdown {
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-control {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -147,9 +197,10 @@
         function realizarSorteio() {
             let resultadoHTML = '<table class="table table-striped"><thead><tr><th>Pessoa 01 da dupla</th><th>Pessoa 02 da dupla</th></tr></thead><tbody>';
 
+            // Força a dupla com Nicolas e Smith
             const nomeSmith = "smith";
             const nomeNicolas = "nicolas";
-
+            
             if (nomesMasculinos.includes(nomeSmith) && nomesFemininos.includes(nomeNicolas)) {
                 resultadoHTML += <tr><td>Nicolas</td><td>Smith</td></tr>;
                 nomesMasculinos = nomesMasculinos.filter(nome => nome !== nomeSmith);
