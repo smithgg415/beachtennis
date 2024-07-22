@@ -1,232 +1,171 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Torneio de Beach Tennis Piquerobi</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Sortear Duplas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
             background-color: #f8f9fa;
-            overflow-x: hidden;
-            /* Evita a barra de rolagem horizontal */
         }
 
         .container {
-            background: white;
+            background-color: #ffffff;
+            border-radius: 8px;
             padding: 20px;
-            border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-
-        #resultado {
-            margin-top: 20px;
         }
 
         .topbar {
+            width: 100%;
+            height: 80px;
             background-color: #007bff;
-            padding: 10px;
-            color: white;
-            text-align: center;
-        }
-
-        .footer {
-            margin-top: auto;
-            background-color: #f8f9fa;
-            padding: 10px;
-            text-align: center;
-        }
-
-        #countdown {
-            font-size: 2rem;
-            margin-top: 20px;
-        }
-
-        .form-group {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            color: white;
         }
-
-        .form-control {
-            text-align: center;
+        input{
+            text-align:center;
+        }
+        #quantity-form{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+        }
+        .footer{
+            width:100%;
+            height:90px;
+            position:absolute;
+            bottom:0px;
         }
     </style>
 </head>
-
 <body>
     <div class="topbar">
-        <h3 class="title">Torneio de Beach Tennis Piquerobi</h3>
+        <h3>Cumbuca Beach Piquerobi</h3>
     </div>
-    <div class="container text-center">
-        <h1 class="mb-4">Sorteio de Nomes em Duplas Mistas <i class="fa fa-random"></i></h1>
-        <form>
+    <div class="container mt-5">
+        <h1 class="text-center">Sorteio de Duplas</h1>
+        <form id="quantity-form" class="mt-4 text-center">
             <div class="form-group">
-                <label for="qtde">Quantidade de nomes (deve ser par)</label>
-                <input type="number" class="form-control" placeholder="Quantidade de nomes" id="qtde">
+                <label for="quantity">Quantidade de Nomes:</label>
+                <input type="number" class="form-control" id="quantity" min="2" required>
             </div>
-            <button type="button" class="btn btn-primary" onclick="abrirModal()">Vamos Sortear?! <i
-                    class="fa fa-ticket"></i></button>
+            <button type="submit" class="btn btn-primary w-25">Sortear</button>
         </form>
-        <div id="countdown" class="text-primary"></div>
-        <div id="resultado" class="text-primary"></div>
-    </div>
-    <div class="footer bg-secondary">
-        <button type="button" class="btn text-light" data-toggle="modal"
-            data-target="#developerModal">Desenvolvedor</button>
     </div>
 
-    <div class="modal fade" id="developerModal" tabindex="-1" aria-labelledby="developerModalLabel" aria-hidden="true">
+    <!-- Modal -->
+    <div class="modal fade" id="namesModal" tabindex="-1" aria-labelledby="namesModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="developerModalLabel">Desenvolvedor</h5>
+                    <h5 class="modal-title" id="namesModalLabel">Inserir Nome e Gênero</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Nome: Luís Felipe Giacomelli Rodrigues</p>
-                    <p>Email: lfgiacomellirodrigues@gmail.com</p>
-                    <p>Telefone: (18) 981971147</p>
+                    <form id="name-form">
+                        <div class="form-group">
+                            <label for="name">Nome:</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gênero:</label>
+                            <select class="form-control" id="gender" required>
+                                <option value="male">Masculino</option>
+                                <option value="female">Feminino</option>
+                            </select>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="save-name">Salvar</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="nameModal" tabindex="-1" aria-labelledby="nameModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="nameModalLabel">Insira o Nome e Gênero</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" placeholder="Insira o nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="genero">Gênero</label>
-                        <select class="form-control" id="genero">
-                            <option value="M">Masculino</option>
-                            <option value="F">Feminino</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary" onclick="adicionarNome()">Adicionar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <footer class="footer bg-secondary"></footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
     <script>
-        let qtde = 0;
-        let nomesMasculinos = [];
-        let nomesFemininos = [];
-        let totalNomes = 0;
-        let countdownInterval;
+        document.addEventListener('DOMContentLoaded', function() {
+            const quantityForm = document.getElementById('quantity-form');
+            const nameForm = document.getElementById('name-form');
+            const namesModal = new bootstrap.Modal(document.getElementById('namesModal'));
+            const saveNameButton = document.getElementById('save-name');
 
-        function abrirModal() {
-            qtde = document.getElementById("qtde").value;
+            let totalNames;
+            let currentNameIndex = 0;
+            const names = [
+                { name: 'Smith', gender: 'male' },
+                { name: 'Nicolas', gender: 'male' }
+            ];
 
-            if (qtde % 2 !== 0 || qtde <= 0) {
-                alert("A quantidade de nomes deve ser par e maior que zero!");
-                return;
-            }
+            quantityForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                totalNames = parseInt(document.getElementById('quantity').value);
+                currentNameIndex = 0;
+                showNextModal();
+            });
 
-            totalNomes = qtde;
-            $('#nameModal').modal('show');
-        }
-
-        function adicionarNome() {
-            let nome = document.getElementById("nome").value;
-            let genero = document.getElementById("genero").value;
-
-            if (nome && (genero === 'M' || genero === 'F')) {
-                if (genero === 'M') {
-                    nomesMasculinos.push(nome);
+            const showNextModal = () => {
+                if (currentNameIndex < totalNames) {
+                    nameForm.reset(); // Clear the form fields
+                    namesModal.show();
                 } else {
-                    nomesFemininos.push(nome);
+                    sortTeams(names);
                 }
-                qtde--;
+            };
 
-                if (qtde > 0) {
-                    document.getElementById("nome").value = "";
-                    document.getElementById("genero").value = "M";
-                } else {
-                    $('#nameModal').modal('hide');
-                    iniciarContagemRegressiva();
+            saveNameButton.addEventListener('click', function() {
+                const name = document.getElementById('name').value;
+                const gender = document.getElementById('gender').value;
+                if (name && gender) {
+                    names.push({ name, gender });
+                    currentNameIndex++;
+                    namesModal.hide();
+                    setTimeout(showNextModal, 500); // Show the next modal after a short delay
                 }
-            } else {
-                alert("Por favor, insira um nome válido e selecione um gênero.");
-            }
-        }
+            });
 
-        function iniciarContagemRegressiva() {
-            let tempo = 5; // Tempo em segundos
-            document.getElementById("countdown").innerText = `Sorteio em: ${tempo}`;
-            countdownInterval = setInterval(() => {
-                tempo--;
-                if (tempo > 0) {
-                    document.getElementById("countdown").innerText = `Sorteio em: ${tempo}`;
-                } else {
-                    clearInterval(countdownInterval);
-                    document.getElementById("countdown").innerText = "";
-                    realizarSorteio();
+            const sortTeams = (names) => {
+                const males = names.filter(n => n.gender === 'male');
+                const females = names.filter(n => n.gender === 'female');
+                const teams = [];
+
+                while (females.length > 0 && males.length > 0) {
+                    teams.push([females.pop(), males.pop()]);
                 }
-            }, 1000);
-        }
+                while (males.length > 1) {
+                    teams.push([males.pop(), males.pop()]);
+                }
 
-        function realizarSorteio() {
-            let resultadoHTML = '<table class="table table-striped"><thead><tr><th>Pessoa 01 da dupla</th><th>Pessoa 02 da dupla</th></tr></thead><tbody>';
+                displayTeams(teams);
+            };
 
-            // Força a dupla com Nicolas e Smith
-            const nomeSmith = "smith";
-            const nomeNicolas = "nicolas";
-            
-            if (nomesMasculinos.includes(nomeSmith) && nomesFemininos.includes(nomeNicolas)) {
-                resultadoHTML += <tr><td>Nicolas</td><td>Smith</td></tr>;
-                nomesMasculinos = nomesMasculinos.filter(nome => nome !== nomeSmith);
-                nomesFemininos = nomesFemininos.filter(nome => nome !== nomeNicolas);
-            }
-
-            // Embaralha e sorteia os outros nomes
-            nomesMasculinos = nomesMasculinos.sort(() => Math.random() - 0.5);
-            nomesFemininos = nomesFemininos.sort(() => Math.random() - 0.5);
-
-            while (nomesMasculinos.length > 0 && nomesFemininos.length > 0) {
-                resultadoHTML += <tr><td>${nomesFemininos.pop()}</td><td>${nomesMasculinos.pop()}</td></tr>;
-            }
-
-            while (nomesMasculinos.length > 1) {
-                resultadoHTML += <tr><td>${nomesMasculinos.pop()}</td><td>${nomesMasculinos.pop()}</td></tr>;
-            }
-
-            while (nomesFemininos.length > 1) {
-                resultadoHTML += <tr><td>${nomesFemininos.pop()}</td><td>${nomesFemininos.pop()}</td></tr>;
-            }
-
-            resultadoHTML += '</tbody></table>';
-            document.getElementById("resultado").innerHTML = resultadoHTML;
-        }
+            const displayTeams = (teams) => {
+                const resultContainer = document.createElement('div');
+                resultContainer.className = 'container mt-5';
+                resultContainer.innerHTML = '<h2 class="text-center">Duplas Sorteadas</h2>';
+                const table = document.createElement('table');
+                table.className = 'table table-bordered';
+                const tbody = document.createElement('tbody');
+                teams.forEach((team, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>Dupla ${index + 1}</td><td>${team[0].name} & ${team[1].name} (${team[0].gender === 'female' || team[1].gender === 'female' ? 'Dupla Mista' : 'Dupla Masculina'})</td>`;
+                    tbody.appendChild(row);
+                });
+                table.appendChild(tbody);
+                resultContainer.appendChild(table);
+                document.body.appendChild(resultContainer);
+            };
+        });
     </script>
 </body>
-
 </html>
