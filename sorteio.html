@@ -7,7 +7,78 @@
     <title>Torneio de Beach Tennis Piquerobi</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/sorteio.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+            /* Evita a barra de rolagem horizontal */
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        #resultado {
+            margin-top: 20px;
+        }
+
+        .topbar {
+            background-color: #007bff;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        .footer {
+            margin-top: auto;
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #countdown {
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-control {
+            text-align: center;
+        }
+
+        /* Estilos para a tela de login */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #007bff;
+        }
+
+        .login-form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .login-form h3 {
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +97,6 @@
                 <button type="submit" class="btn btn-primary">Entrar</button>
                 <div id="loginError" class="text-danger mt-2"></div>
             </form>
-            <p class="bg-danger text-light">Acesso a essa tela permitido apenas para organizadores.</p>
         </div>
     </div>
 
@@ -107,7 +177,115 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="script/script.js">
+    <script>
+        const usuarioCorreto = "organizador";
+        const senhaCorreta = "senha123";
+
+        function validarLogin() {
+            const usuario = document.getElementById("username").value;
+            const senha = document.getElementById("password").value;
+
+            if (usuario === usuarioCorreto && senha === senhaCorreta) {
+                document.getElementById("loginScreen").classList.add("d-none");
+                document.getElementById("mainContent").classList.remove("d-none");
+                return false; // Impede o envio do formulário
+            } else {
+                document.getElementById("loginError").innerText = "Usuário ou senha incorretos.";
+                return false; // Impede o envio do formulário
+            }
+        }
+
+        let qtde = 0;
+        let nomesMasculinos = [];
+        let nomesFemininos = [];
+        let totalNomes = 0;
+        let countdownInterval;
+
+        function abrirModal() {
+            qtde = document.getElementById("qtde").value;
+
+            if (qtde % 2 !== 0 || qtde <= 0) {
+                alert("A quantidade de nomes deve ser par e maior que zero!");
+                return;
+            }
+
+            totalNomes = qtde;
+            $('#nameModal').modal('show');
+        }
+
+        function adicionarNome() {
+            let nome = document.getElementById("nome").value;
+            let genero = document.getElementById("genero").value;
+
+            if (nome && (genero === 'M' || genero === 'F')) {
+                if (genero === 'M') {
+                    nomesMasculinos.push(nome);
+                } else {
+                    nomesFemininos.push(nome);
+                }
+                qtde--;
+
+                if (qtde > 0) {
+                    document.getElementById("nome").value = "";
+                    document.getElementById("genero").value = "M";
+                } else {
+                    $('#nameModal').modal('hide');
+                    iniciarContagemRegressiva();
+                }
+            } else {
+                alert("Por favor, insira um nome válido e selecione um gênero.");
+            }
+        }
+
+        function iniciarContagemRegressiva() {
+            let tempo = 5; // Tempo em segundos
+            document.getElementById("countdown").innerText = `Sorteio em: ${tempo}`;
+            countdownInterval = setInterval(() => {
+                tempo--;
+                if (tempo > 0) {
+                    document.getElementById("countdown").innerText = `Sorteio em: ${tempo}`;
+                } else {
+                    clearInterval(countdownInterval);
+                    document.getElementById("countdown").innerText = "";
+                    realizarSorteio();
+                }
+            }, 1000);
+        }
+
+        function realizarSorteio() {
+            let resultadoHTML = '<table class="table table-striped"><thead><tr><th>Pessoa 01 da dupla</th><th>Pessoa 02 da dupla</th></tr></thead><tbody>';
+
+            // Força a dupla com Nicolas e Smith
+            const nomeSmith = "smith";
+            const nomeNicolas = "nicolas";
+            
+            if (nomesMasculinos.includes(nomeSmith) && nomesFemininos.includes(nomeNicolas)) {
+                resultadoHTML += `<tr><td>Nicolas</td><td>Smith</td></tr>`;
+                nomesMasculinos = nomesMasculinos.filter(nome => nome !== nomeSmith);
+                nomesFemininos = nomesFemininos.filter(nome => nome !== nomeNicolas);
+            } else {
+                alert("Os nomes 'Smith' e 'Nicolas' devem estar presentes e inseridos corretamente.");
+            }
+
+            // Embaralha e sorteia os outros nomes
+            nomesMasculinos = nomesMasculinos.sort(() => Math.random() - 0.5);
+            nomesFemininos = nomesFemininos.sort(() => Math.random() - 0.5);
+
+            while (nomesMasculinos.length > 0 && nomesFemininos.length > 0) {
+                resultadoHTML += `<tr><td>${nomesFemininos.pop()}</td><td>${nomesMasculinos.pop()}</td></tr>`;
+            }
+
+            while (nomesMasculinos.length > 1) {
+                resultadoHTML += `<tr><td>${nomesMasculinos.pop()}</td><td>${nomesMasculinos.pop()}</td></tr>`;
+            }
+
+            while (nomesFemininos.length > 1) {
+                resultadoHTML += `<tr><td>${nomesFemininos.pop()}</td><td>${nomesFemininos.pop()}</td></tr>`;
+            }
+
+            resultadoHTML += '</tbody></table>';
+            document.getElementById("resultado").innerHTML = resultadoHTML;
+        }
     </script>
 </body>
 
