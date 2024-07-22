@@ -5,43 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sortear Duplas</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-
-        .container {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .topbar {
-            width: 100%;
-            height: 80px;
-            background-color: #007bff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-        }
-        input{
-            text-align:center;
-        }
-        #quantity-form{
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-        }
-        .footer{
-            width:100%;
-            height:90px;
-            position:absolute;
-            bottom:0px;
-        }
-    </style>
+    <link rel="website icon" type="png" href="https://static.vecteezy.com/system/resources/previews/014/606/025/original/green-tennis-ball-for-outdoor-sports-png.png">
+    <link rel="stylesheet" href="css/sorteio.css">
 </head>
 <body>
     <div class="topbar">
@@ -58,7 +23,6 @@
         </form>
     </div>
 
-    <!-- Modal -->
     <div class="modal fade" id="namesModal" tabindex="-1" aria-labelledby="namesModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -93,79 +57,6 @@
     <footer class="footer bg-secondary"></footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const quantityForm = document.getElementById('quantity-form');
-            const nameForm = document.getElementById('name-form');
-            const namesModal = new bootstrap.Modal(document.getElementById('namesModal'));
-            const saveNameButton = document.getElementById('save-name');
-
-            let totalNames;
-            let currentNameIndex = 0;
-            const names = [
-                { name: 'Smith', gender: 'male' },
-                { name: 'Nicolas', gender: 'male' }
-            ];
-
-            quantityForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                totalNames = parseInt(document.getElementById('quantity').value);
-                currentNameIndex = 0;
-                showNextModal();
-            });
-
-            const showNextModal = () => {
-                if (currentNameIndex < totalNames) {
-                    nameForm.reset(); // Clear the form fields
-                    namesModal.show();
-                } else {
-                    sortTeams(names);
-                }
-            };
-
-            saveNameButton.addEventListener('click', function() {
-                const name = document.getElementById('name').value;
-                const gender = document.getElementById('gender').value;
-                if (name && gender) {
-                    names.push({ name, gender });
-                    currentNameIndex++;
-                    namesModal.hide();
-                    setTimeout(showNextModal, 500); // Show the next modal after a short delay
-                }
-            });
-
-            const sortTeams = (names) => {
-                const males = names.filter(n => n.gender === 'male');
-                const females = names.filter(n => n.gender === 'female');
-                const teams = [];
-
-                while (females.length > 0 && males.length > 0) {
-                    teams.push([females.pop(), males.pop()]);
-                }
-                while (males.length > 1) {
-                    teams.push([males.pop(), males.pop()]);
-                }
-
-                displayTeams(teams);
-            };
-
-            const displayTeams = (teams) => {
-                const resultContainer = document.createElement('div');
-                resultContainer.className = 'container mt-5';
-                resultContainer.innerHTML = '<h2 class="text-center">Duplas Sorteadas</h2>';
-                const table = document.createElement('table');
-                table.className = 'table table-bordered';
-                const tbody = document.createElement('tbody');
-                teams.forEach((team, index) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `<td>Dupla ${index + 1}</td><td>${team[0].name} & ${team[1].name} (${team[0].gender === 'female' || team[1].gender === 'female' ? 'Dupla Mista' : 'Dupla Masculina'})</td>`;
-                    tbody.appendChild(row);
-                });
-                table.appendChild(tbody);
-                resultContainer.appendChild(table);
-                document.body.appendChild(resultContainer);
-            };
-        });
-    </script>
+    <script src="script/sorteioScript.js"></script>
 </body>
 </html>
