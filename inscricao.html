@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscrição - Beach Tennis Piquerobi</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/014/606/025/original/green-tennis-ball-for-outdoor-sports-png.png" type="image/png">
+    <link rel="icon"
+        href="https://static.vecteezy.com/system/resources/previews/014/606/025/original/green-tennis-ball-for-outdoor-sports-png.png"
+        type="image/png">
 </head>
 
 <body>
@@ -37,7 +40,6 @@
                     <div>
                         <p><i class="bi bi-info-circle-fill"></i> Para realizar o pagamento desça a tela, após isso, envie o comprovante para <strong>(18)
                                 98197-1147</strong> ou <strong> (18) 99741-8372</strong></p>
-                                <p><i class="bi bi-info-circle-fill"> </i>Após a confirmação da inscrição, será gerado um PDF, guarde-o.</p>
                         <div class="cont-wpp">
                             <button class="btn btn-success"
                                 style="background-color: #00bb2d; width: 50px; height: 50px; border: none; border-radius: 15px; color: white; display: flex; align-items: center; justify-content: center;">
@@ -75,10 +77,6 @@
             VOLTAR</a>
     </button>
     
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script>
         document.getElementById('copyPixButton').addEventListener('click', function() {
             var pixKey = document.getElementById('pix-key').innerText;
@@ -88,26 +86,10 @@
                 alert('Falha ao copiar a chave PIX: ' + err);
             });
         });
-
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            var nome = document.getElementById('nome').value;
-            var telefone = document.getElementById('telefone').value;
-
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            doc.text(20, 20, 'Comprovante de Inscrição');
-            doc.text(20, 30, `Nome: ${nome}`);
-            doc.text(20, 40, `Telefone: ${telefone}`);
-            doc.text(20, 50, 'Inscrição confirmada para o torneio Beach Tennis Piquerobi.');
-
-            doc.save('comprovante_inscricao.pdf');
-
-            this.submit();
-        });
     </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
