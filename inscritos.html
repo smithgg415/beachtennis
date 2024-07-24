@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscritos - Beach Tennis Piquerobi</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/stylesInscritos.css">
-    <link rel="website icon"
-        href="https://static.vecteezy.com/system/resources/previews/014/606/025/original/green-tennis-ball-for-outdoor-sports-png.png"
-        type="png">
+    <link rel="website icon" href="https://static.vecteezy.com/system/resources/previews/014/606/025/original/green-tennis-ball-for-outdoor-sports-png.png" type="png">
 </head>
 
 <body>
@@ -32,7 +29,7 @@
                 <tbody>
                     <tr>
                         <td>Nicolas Rodrigues Santos</td>
-                        <td class="bg-success text-center text-light">Pago</td>
+                        <td class="bg-success text-center text-light">Pendente</td>
                     </tr>
                     <tr>
                         <td>Luís Felipe Giacomelli Rodrigues</td>
@@ -68,6 +65,7 @@
                     </tr>
                 </tbody>
             </table>
+            <p id="competitors-count" class="text-center mt-3"></p>
         </div>
         <p class="update-message">A lista de inscritos é atualizada todo dia às 23h 00min</p>
     </div>
@@ -76,6 +74,12 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var competitorsCount = document.querySelectorAll('tbody tr').length;
+            document.getElementById('competitors-count').innerText = 'Competidores inscritos: ' + competitorsCount;
+        });
+    </script>
 </body>
 
 </html>
