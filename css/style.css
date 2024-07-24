@@ -56,50 +56,6 @@ body {
         font-size: 1rem;
     }
 }
-
-.ball {
-    height: 30px;
-    width: 30px;
-    margin: 10px;
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    left: 10px;
-    transform: translateX(-50%);
-    animation: alternar 4s infinite alternate;
-}
-
-.ball-two {
-    height: 30px;
-    width: 30;
-    margin: 10px;
-    border-radius: 50%;
-    top: 0;
-    right: 10px;
-    transform: translateX(-50%);
-    animation: subir 4s infinite alternate;
-}
-
-@keyframes subir {
-    from {
-        top: 0;
-    }
-
-    to {
-        top: calc(100% - 70px);
-    }
-}
-
-@keyframes alternar {
-    from {
-        top: 0;
-    }
-
-    to {
-        top: calc(100% - 70px);
-    }
-}
-
 /*Código da tela inscrição.html*/
 
 .topbar {
