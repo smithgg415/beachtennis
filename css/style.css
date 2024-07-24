@@ -56,7 +56,25 @@ body {
         font-size: 1rem;
     }
 }
-
+.ball {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left:15px;
+    transform: translateX(-50%);
+    animation: alternar 4s infinite alternate;
+}
+@keyframes alternar {
+    from {
+        top: 0;
+    }
+    to {
+        top: calc(100% - 70px); /* Altura do contêiner menos a altura da bolinha */
+    }
+}
 /*Código da tela inscrição.html*/
 
 .topbar {
