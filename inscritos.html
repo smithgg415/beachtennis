@@ -78,6 +78,7 @@
                 </tbody>
             </table>
             <p id="competitors-count" class="text-center mt-3"></p>
+            <!-- <p id="competitors-pay" class="text-center mt-3"></p> -->
         </div>
         <p class="update-message">A lista de inscritos é atualizada todo dia às 23h 00min</p>
     </div>
@@ -91,6 +92,10 @@
             var competitorsCount = document.querySelectorAll('tbody tr').length;
             document.getElementById('competitors-count').innerText = 'Quantidade de competidores inscritos: ' + competitorsCount;
         });
+        // document.addEventListener("DOMContentLoaded", function(){
+        //     var competitorsPay = document.querySelectorAll("tbody tr").length;
+        //     document.getElementById("competitors-pay").innerText = "Quantidade de competidores com a inscrição paga: " + competitorsPay;
+        // } )
     </script>
 </body>
 
