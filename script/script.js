@@ -2,7 +2,8 @@
 $('#carouselPatrocinadores').carousel({
     interval: 2000,
     wrap: true
-});function showPopup() {
+})
+function showPopup() {
     document.getElementById('popup-container').classList.add('show');
 }
 
@@ -10,11 +11,9 @@ function closePopup() {
     document.getElementById('popup-container').classList.remove('show');
 }
 
+// Para exibir o pop-up automaticamente ao carregar a página
 window.onload = function() {
-    if (!localStorage.getItem('popupShown')) {
-        showPopup();
-        localStorage.setItem('popupShown', 'true');
-    }
+    showPopup();
 };
 
 
