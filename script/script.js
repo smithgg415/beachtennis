@@ -2,8 +2,7 @@
 $('#carouselPatrocinadores').carousel({
     interval: 2000,
     wrap: true
-});
-function showPopup() {
+});function showPopup() {
     document.getElementById('popup-container').classList.add('show');
 }
 
@@ -11,10 +10,13 @@ function closePopup() {
     document.getElementById('popup-container').classList.remove('show');
 }
 
-// Para exibir o pop-up automaticamente ao carregar a página
 window.onload = function() {
-    showPopup();
+    if (!localStorage.getItem('popupShown')) {
+        showPopup();
+        localStorage.setItem('popupShown', 'true');
+    }
 };
+
 
 //codigo da tela inscricao.html
         document.getElementById('registrationForm').addEventListener('submit', function (event) {
