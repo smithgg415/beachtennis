@@ -63,6 +63,7 @@
                         <p><strong>Luís Felipe Giacomelli Rodrigues</strong></p>
                         <p><strong>R$20,00</strong></p>
                         <p>Data limite para o pagamento: <strong>26/07 às 23:59</strong></p>
+                        <p id="timer"></p>
                     </div>
                 </div>
             </div>
@@ -87,6 +88,22 @@
                 alert('Falha ao copiar a chave PIX: ' + err);
             });
         });
+        function updateCountdown() {
+        const countdownDate = new Date("2024-07-26T23:59:00").getTime();
+        const now = new Date().getTime();
+        const distance = countdownDate - now;
+
+        if (distance > 0) {
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("timer").innerHTML = `Restam ${hours} horas e ${minutes} minutos para realizar o pagamento caso você ainda não tenha feito`;
+        } else {
+            document.getElementById("timer").innerHTML = "O tempo acabou!";
+        }
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
