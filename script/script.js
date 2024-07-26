@@ -14,26 +14,6 @@
         window.onload = function() {
             showPopup();
         };
-
-        document.addEventListener("DOMContentLoaded", function() {
-            var button = document.getElementById("inscriptionBtn");
-            var popup = document.getElementById("popupContainer");
-            var closeBtn = document.getElementsByClassName("popup-close")[0];
-        
-            button.onclick = function() {
-                popup.style.display = "block";
-            }
-        
-            closeBtn.onclick = function() {
-                popup.style.display = "none";
-            }
-        
-            window.onclick = function(event) {
-                if (event.target == popup) {
-                    popup.style.display = "none";
-                }
-            }
-        });
         
 //codigo da tela inscricao.html
         document.getElementById('registrationForm').addEventListener('submit', function (event) {
