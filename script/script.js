@@ -1,6 +1,6 @@
 //codigo da tela index.html
         $('#carouselPatrocinadores').carousel({
-            interval: 2000,
+            interval: 1300,
             wrap: true
         })
         function showPopup() {
