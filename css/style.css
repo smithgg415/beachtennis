@@ -114,6 +114,18 @@ body {
     visibility: visible;
     opacity: 1;
 }
+.messageClose{
+    position: fixed;
+    right:10px;
+    bottom:40px;
+    width:200px;
+    height:200;
+    background-color: gray;
+    border-radius:20px;
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+
+}
 /*Código da tela inscrição.html*/
 
 .topbar {
