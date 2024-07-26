@@ -1,19 +1,21 @@
 //codigo da tela index.html
-        $('#carouselPatrocinadores').carousel({
-            interval: 1300,
-            wrap: true
-        })
-        function showPopup() {
-            document.getElementById('popup-container').classList.add('show');
-        }
+       
+$('#carouselPatrocinadores').carousel({
+    interval: 1300,
+    wrap: true
+});
 
-        function closePopup() {
-            document.getElementById('popup-container').classList.remove('show');
-        }
+function showPopup() {
+    document.getElementById('popup-container').classList.add('show');
+}
 
-        window.onload = function() {
-            showPopup();
-        };
+function closePopup() {
+    document.getElementById('popup-container').classList.remove('show');
+}
+
+window.onload = function () {
+    showPopup();
+};
         
 //codigo da tela inscricao.html
         document.getElementById('registrationForm').addEventListener('submit', function (event) {

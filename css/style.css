@@ -18,7 +18,6 @@ body {
     object-fit: contain;
 }
 
-
 .background-image {
     position: relative;
     background-image: url('https://th.bing.com/th/id/R.0d181f268c71021844391aa979e4cc31?rik=ZLzHcP6pPzHyDA&riu=http%3a%2f%2fblog.prospin.com.br%2fwp-content%2fuploads%2f2021%2f04%2fraquete-beach-tenis-e-bola-na-areia-1-2-scaled.jpg&ehk=AvUT2JoA2iv3WUYtfNqftPpDd0J1bOMGh%2b7duGd0ZXw%3d&risl=&pid=ImgRaw&r=0');
@@ -65,7 +64,7 @@ body {
     max-height: 90%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    border-radius:20px;
+    border-radius: 20px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -81,7 +80,7 @@ body {
 .popup h2 {
     font-family: 'Courier New', Courier, monospace;
     margin: 10px 0;
-    margin-bottom:-50px;
+    margin-bottom: -50px;
 }
 
 .close-button {
@@ -94,11 +93,25 @@ body {
     cursor: pointer;
 }
 
-#popup-container.show {
+.popup-container {
+    display: none;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-container.show {
+    display: flex;
     visibility: visible;
     opacity: 1;
 }
-
 /*Código da tela inscrição.html*/
 
 .topbar {
