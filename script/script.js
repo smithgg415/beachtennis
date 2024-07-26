@@ -16,7 +16,6 @@ function closePopup() {
 window.onload = function () {
     showPopup();
 };
-        
 //codigo da tela inscricao.html
         document.getElementById('registrationForm').addEventListener('submit', function (event) {
             event.preventDefault();
