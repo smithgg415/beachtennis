@@ -1,0 +1,156 @@
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navbar */
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        /* Jumbotron */
+        .jumbotron {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .jumbotron h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .jumbotron p {
+            font-size: 1.2rem;
+        }
+
+        /* Background Image Section */
+        .background-image {
+            position: relative;
+            background-image: url('https://th.bing.com/th/id/R.0d181f268c71021844391aa979e4cc31?rik=ZLzHcP6pPzHyDA&riu=http%3a%2f%2fblog.prospin.com.br%2fwp-content%2fuploads%2f2021%2f04%2fraquete-beach-tenis-e-bola-na-areia-1-2-scaled.jpg&ehk=AvUT2JoA2iv3WUYtfNqftPpDd0J1bOMGh%2b7duGd0ZXw%3d&risl=&pid=ImgRaw&r=0');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .background-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            border-radius: 10px;
+        }
+
+        .background-image h2 {
+            position: relative;
+            z-index: 2;
+            font-size: 2rem;
+        }
+
+        /* Popup Styles */
+        .popup-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.5s;
+        }
+
+        .popup {
+            background: white;
+            padding: 20px;
+            width: 400px;
+            max-width: 90%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            animation: popup-appear 0.5s ease;
+        }
+
+        .popup img {
+            width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .popup h2 {
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #popup-container.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @keyframes popup-appear {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            bottom: 0px;
+            margin-top:10px;
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }

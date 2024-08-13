@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beach Tennis Piquerobi</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link rel="icon"
+        href="https://static.vecteezy.com/system/resources/previews/014/606/025/original/green-tennis-ball-for-outdoor-sports-png.png"
+        type="image/png">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navbar */
+        .navbar {
+            margin-bottom: 20px;
+        }
+
+        /* Jumbotron */
+        .jumbotron {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .jumbotron h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .jumbotron p {
+            font-size: 1.2rem;
+        }
+
+        /* Background Image Section */
+        .background-image {
+            position: relative;
+            background-image: url('https://th.bing.com/th/id/R.0d181f268c71021844391aa979e4cc31?rik=ZLzHcP6pPzHyDA&riu=http%3a%2f%2fblog.prospin.com.br%2fwp-content%2fuploads%2f2021%2f04%2fraquete-beach-tenis-e-bola-na-areia-1-2-scaled.jpg&ehk=AvUT2JoA2iv3WUYtfNqftPpDd0J1bOMGh%2b7duGd0ZXw%3d&risl=&pid=ImgRaw&r=0');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .background-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            border-radius: 10px;
+        }
+
+        .background-image h2 {
+            position: relative;
+            z-index: 2;
+            font-size: 2rem;
+        }
+
+        /* Popup Styles */
+        .popup-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.5s;
+        }
+
+        .popup {
+            background: white;
+            padding: 20px;
+            width: 400px;
+            max-width: 90%;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            animation: popup-appear 0.5s ease;
+        }
+
+        .popup img {
+            width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .popup h2 {
+            font-family: 'Courier New', Courier, monospace;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #popup-container.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        @keyframes popup-appear {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            position: relative;
+            margin-top: 10px;
+            bottom: 0px;
+            width: 100%;
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+
+        #letzplay img {
+            border-radius: 20px;
+        }
+
+        .jumbotron h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        .jumbotrom p {
+            font-size: 1.2rem;
+            font-family: Arial, sans-serif;
+        }
+
+        .organizadores {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .organizadores {
+            margin-top: 50px;
+            border: #343a409c 1px solid;
+            border-radius: 15px;
+        }
+
+        .organizadores h3 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .org,
+        .org2 {
+            font-size: 1.2rem;
+            margin: 2px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .logoquadrabtp {
+            border-radius: 50%;
+            width: 300px;
+        }
+
+        .info {
+            color: #fff;
+            z-index: 2;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light" target="_blank" href="https://instagram.com/beachtennispiquerobi/">
+                <img src="images/logoquadrabtp.jpg" alt="Logo" width="30" height="30"
+                    class="d-inline-block align-text-top" style="border-radius:50%;">
+                Cumbuca Beach Tennis Piquerobi <i class="bi bi-trophy"></i>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light disabled" href="#">Inscrições</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="https://letzplay.me/a/3be31eba-9693-4e3f-8d3c-c9ed25c14c8e"
+                            target="_blank">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+        <div class="container mt-5">
+            <div class="jumbotron">
+                <h1 class="display-4" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">
+                    Beach
+                    Tennis Piquerobi</h1>
+                <img src="images/logoquadrabtp.jpg" alt="logoquadrabtp" class="logoquadrabtp">
+                <h3
+                    style="margin-top:10px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;text-decoration:underline;">
+                    Inscrições não liberadas ainda, aguarde atualizações!</h3>
+                <hr class="mt-4">
+                <!-- <a class="btn btn-danger btn-lg mt-2 disabled" href="inscricao.html" role="button"><i class="bi bi-pencil-square"></i>Inscrições finalizadas</a>
+            <a class="btn btn-secondary btn-lg mt-2" href="inscritos.html" role="button"><i class="bi bi-people"></i> Ver Inscritos</a>
+            <a class="btn btn-danger btn-lg mt-2" href="loginOrg.html" role="button"><i class="bi bi-gear"> </i> Realizar sorteio</a> -->
+            </div>
+        </div>
+    <div class="container mt-5" id="letzplay">
+        <div class="jumbotron">
+            <h2>Novidade!</h2>
+            <p class="text">Pensando em melhorar nossa estrutura e o controle das inscrições, utilizaremos o sistema
+                LetzPlay para que vocês efetuem as inscrições!</p>
+            <img src="images/logoletzplay.png" alt="Logo LetzPlay">
+            <div class="botoes">
+                <a href='#' class="inscricao btn btn-success mt-4 disabled" role="button"><i
+                        class='bi bi-pencil-square'>
+                    </i>Realize sua
+                    inscrição</a>
+                <a target="_blank" href='https://letzplay.me/a/3be31eba-9693-4e3f-8d3c-c9ed25c14c8e'
+                    class="inscricao btn btn-primary mt-4" role="button"><i class='bi bi-people'>
+                    </i>Acesse nosso perfil</a>
+            </div>
+            <div class="organizadores">
+                <h3>Organizadores</h3>
+                <p class="org">Smith - Organizador Geral</p>
+                <p class="org2">Nicolas Rodrigues - Organizador Geral</p>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="jumbotron background-image">
+            <!-- <h2>Informações novas estão por vir!</h2> -->
+            <div class="info">
+                <p><strong>DATA:</strong> Indefinida</p>
+                <p><strong>HORÁRIO:</strong> Indefinida</p>
+                <p><strong>LOCAL:</strong> Quadra de areia GINÁSIO MUNICIPAL (Acesso pelo Parque Mario Covas) <a
+                        style="color:#007bff;background-color: #fff; padding:5px;border-radius:10px;text-decoration: none;"
+                        target="_blank" href='https://maps.app.goo.gl/ZQrLwiM4fYPDBrd67'><i
+                            class='bi bi-geo-alt-fill'></i> Veja aqui</a></p>
+                <p><strong>VALOR:</strong> Indefinido</p>
+                <p><strong>DATA LIMITE INSCRIÇÕES:</strong> Indefinida</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <a href="#" data-toggle="modal" data-target="#developerModal" class="btn btn-primary"><i
+                    class="bi bi-info-circle"></i> Desenvolvedor</a>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="developerModal" tabindex="-1" aria-labelledby="developerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="developerModalLabel">Informações do Desenvolvedor</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Nome:</strong> Luís Felipe Giacomelli Rodrigues</p>
+                    <p><strong>Email:</strong> lfgiacomellirodrigues@gmail.com</p>
+                    <p><strong>Telefone:</strong> (18) 98197-1147</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="popup-container" class="popup-container">
+        <div class="popup">
+            <button class="close-button" onclick="closePopup()">x</button>
+            <h2>Cumbuca vindo por aí!</h2>
+            <h2>As inscrições serão realizadas pelo LetzPlay</h2>
+            <a href="https://letzplay.me/a/3be31eba-9693-4e3f-8d3c-c9ed25c14c8e" target="_blank">
+                <img src="images/logoletzplay.png" alt="Logo LetzPlay"><br>Clique para acessar nosso perfil
+            </a>
+            <br>
+            <a href="https://letzplay.me/" target="_blank" class="btn btn-primary text-light">Crie o seu agora</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script/script.js">
+
+    </script>
+</body>
+
+</html>
