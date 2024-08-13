@@ -80,19 +80,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        function closePopup() {
-            document.getElementById('popup-container').classList.remove('show');
-        }
-
-        // Display the popup only once when the main page loads
-        window.onload = function() {
-            var hasVisited = sessionStorage.getItem('hasVisited');
-            if (!hasVisited) {
-                document.getElementById('popup-container').classList.add('show');
-                sessionStorage.setItem('hasVisited', 'true');
-            }
-        };
+    <script src="script/script.js">
+       
     </script>
 </body>
 </html>
