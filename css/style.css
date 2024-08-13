@@ -131,6 +131,8 @@
 
 /* Footer */
 .footer {
+    position:absolute;
+    bottom:0px;
     background-color: #343a40;
     color: white;
     padding: 10px 0;
