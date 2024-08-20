@@ -6,12 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscrição - Beach Tennis Piquerobi</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon"
-        href="https://static.vecteezy.com/system/resources/previews/014/606/025/original/green-tennis-ball-for-outdoor-sports-png.png"
-        type="image/png">
+    <link rel="icon" href="https://static.vecteezy.com/system/resources/previews/014/606/025/original/green-tennis-ball-for-outdoor-sports-png.png" type="image/png">
 </head>
 
 <body>
@@ -23,9 +20,8 @@
         <h2 class="text-center mb-5">Faça sua inscrição</h2>
         <div class="row">
             <div class="col-md-6">
-                <div class="form-container"
-                    style="background-color: #e9ecef; border-radius: 20px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); padding: 20px; margin-bottom: 20px;">
-                    <form id="registrationForm" action="https://formspree.io/f/xeojeowv" method="post">
+                <div class="form-container" style="background-color: #e9ecef; border-radius: 20px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); padding: 20px; margin-bottom: 20px;">
+                    <form id="registrationForm" action="https://formspree.io/f/xldrwqyz" method="post" onsubmit="confirmation(event)">
                         <div class="form-group">
                             <label for="nome"><i class="bi bi-person-fill"></i> Nome</label>
                             <input type="text" class="form-control" id="nome" name="nome" required>
@@ -34,17 +30,13 @@
                             <label for="telefone"><i class="bi bi-telephone-fill"></i> Telefone</label>
                             <input type="text" class="form-control" id="telefone" name="telefone" required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-check-circle-fill"></i>
-                            Confirmar Inscrição</button>
+                        <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-check-circle-fill"></i> Confirmar Inscrição</button>
                     </form>
                     <div>
-                        <p><i class="bi bi-info-circle-fill"></i> Para realizar o pagamento desça a tela, após isso, envie o comprovante para <strong>(18)
-                                98197-1147</strong> ou <strong> (18) 99741-8372</strong></p>
+                        <p><i class="bi bi-info-circle-fill"></i> Para realizar o pagamento desça a tela, após isso, envie o comprovante para <strong>(18) 98197-1147</strong> ou <strong> (18) 99741-8372</strong></p>
                         <div class="cont-wpp">
-                            <button class="btn btn-success"
-                                style="background-color: #00bb2d; width: 50px; height: 50px; border: none; border-radius: 15px; color: white; display: flex; align-items: center; justify-content: center;">
-                                <a href="https://w.app/RCjyvA" class="text-light"><i class="bi bi-whatsapp"
-                                        style="font-size: 30px;"></i></a>
+                            <button class="btn btn-success" style="background-color: #00bb2d; width: 50px; height: 50px; border: none; border-radius: 15px; color: white; display: flex; align-items: center; justify-content: center;">
+                                <a href="https://w.app/RCjyvA" class="text-light"><i class="bi bi-whatsapp" style="font-size: 30px;"></i></a>
                             </button>
                             <span class="msg">Está tendo problemas?</span>
                         </div>
@@ -52,42 +44,60 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="qr-code-container"
-                    style="background-color: #e9ecef; border-radius: 20px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); padding: 20px;">
-                    <div class="qr-code">
+                <div class="qr-code-container" style="background-color: #e9ecef; border-radius: 20px; box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); padding: 20px;">
+                    <div class="qr-code" style="display: flex;align-items: center;justify-content: center;flex-direction: column;">
                         <img src="images/qrcode-2.jpg" alt="QR Code para Pix" width="130px" height="130px">
-                        <p>Leia o QR CODE ou utilize a chave aleatória.</p>
+                        <p>Use o QRCode ou copie e cole a chave.</p>
                         <p><strong>CHAVE PIX:</strong></p>
                         <p id="pix-key">563.562.668-80</p>
                         <p><button class="btn btn-primary" id="copyPixButton"><i class="bi bi-clipboard"> </i>Copiar Chave PIX</button></p>
-                        <p><strong>Luís Felipe Giacomelli Rodrigues</strong></p>
-                        <p><strong>R$20,00</strong></p>
-                        <p>Data limite para o pagamento: <strong>26/07 às 22:00</strong></p>
+                        <p><strong>R$30,00</strong></p>
+                        <p>Data limite para o pagamento: <strong>23/08 às 17:00</strong></p>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <footer class="footer bg-secondary" style="width: 100%; height: 50px;"></footer>
+    <footer class="footer bg-secondary" style="width: 100%; height: 50px;position: absolute;bottom:0px;"></footer>
 
-    <button class="btn btn-primary"
-        style="position: fixed; background-color: #007bff; bottom: 70px; right: 10px; padding: 10px; border: none; border-radius: 10px;">
-        <a href="index.html" style="text-decoration: none; color: white;"><i class="bi bi-arrow-left-short mr-3"></i>
-            VOLTAR</a>
+    <button class="btn btn-primary" style="position: fixed; background-color: #007bff; bottom: 70px; right: 10px; padding: 10px; border: none; border-radius: 10px;">
+        <a href="index.html" style="text-decoration: none; color: white;"><i class="bi bi-arrow-left-short mr-3"></i> VOLTAR</a>
     </button>
-    
+
     <script>
-        document.getElementById('copyPixButton').addEventListener('click', function() {
+        document.getElementById('copyPixButton').addEventListener('click', function () {
             var pixKey = document.getElementById('pix-key').innerText;
-            navigator.clipboard.writeText(pixKey).then(function() {
+            navigator.clipboard.writeText(pixKey).then(function () {
                 alert('Chave PIX copiada para a área de transferência!');
-            }, function(err) {
+            }, function (err) {
                 alert('Falha ao copiar a chave PIX: ' + err);
             });
         });
+
+        function confirmation(event) {
+            event.preventDefault();  // Prevenir o envio padrão do formulário
+            const form = document.getElementById('registrationForm');
+
+            // Enviar o formulário usando fetch para capturar o sucesso
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = 'confirmation.html';  // Redirecionar após o envio bem-sucedido
+                } else {
+                    alert('Ocorreu um erro ao enviar o formulário. Tente novamente.');
+                }
+            }).catch(error => {
+                alert('Ocorreu um erro ao enviar o formulário. Tente novamente.');
+            });
+        }
     </script>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
