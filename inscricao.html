@@ -28,18 +28,12 @@
                         </div>
                         <div class="form-group">
                             <label for="telefone"><i class="bi bi-telephone-fill"></i> Telefone</label>
-                            <input type="text" class="form-control" id="telefone" name="telefone" required>
+                            <input type="text" class="form-control" id="telefone" name="telefone" required maxlength="15">
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-check-circle-fill"></i> Confirmar Inscrição</button>
                     </form>
                     <div>
                         <p><i class="bi bi-info-circle-fill"></i> Para realizar o pagamento desça a tela, após isso, envie o comprovante para <strong>(18) 98197-1147</strong></p>
-                        <div class="cont-wpp">
-                            <button class="btn btn-success" style="background-color: #00bb2d; width: 50px; height: 50px; border: none; border-radius: 15px; color: white; display: flex; align-items: center; justify-content: center;">
-                                <a href="https://w.app/RCjyvA" class="text-light"><i class="bi bi-whatsapp" style="font-size: 30px;"></i></a>
-                            </button>
-                            <span class="msg">Está tendo problemas?</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -59,12 +53,22 @@
         </div>
     </div>
 
+    <footer class="footer bg-secondary" style="width: 100%; height: 50px;position: absolute;bottom:0px;"></footer>
 
     <button class="btn btn-primary" style="position: fixed; background-color: #007bff; bottom: 70px; right: 10px; padding: 10px; border: none; border-radius: 10px;">
         <a href="index.html" style="text-decoration: none; color: white;"><i class="bi bi-arrow-left-short mr-3"></i> VOLTAR</a>
     </button>
 
     <script>
+        // Função para formatar o telefone enquanto o usuário digita
+        document.getElementById('telefone').addEventListener('input', function (e) {
+            var x = e.target.value.replace(/\D/g, '').substring(0, 11); // Limitar a 11 dígitos (DDD + 9 dígitos)
+            x = x.replace(/^(\d{2})(\d)/g, '($1) $2');
+            x = x.replace(/(\d)(\d{4})$/, '$1-$2');
+            e.target.value = x;
+        });
+
+        // Função para copiar a chave PIX para a área de transferência
         document.getElementById('copyPixButton').addEventListener('click', function () {
             var pixKey = document.getElementById('pix-key').innerText;
             navigator.clipboard.writeText(pixKey).then(function () {
@@ -74,6 +78,7 @@
             });
         });
 
+        // Função para confirmar o envio do formulário
         function confirmation(event) {
             event.preventDefault();  // Prevenir o envio padrão do formulário
             const form = document.getElementById('registrationForm');
