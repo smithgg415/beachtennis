@@ -70,13 +70,20 @@
         <div class="content">
             <i class="bi bi-check-circle-fill success-icon"></i>
             <h2 class="title">Inscrição Realizada com Sucesso!</h2>
-            <p class="message">Obrigado por se inscrever no torneio de Beach Tennis Piquerobi. Sua inscrição foi confirmada. Logo atualizaremos a lista de inscritos no site.</p>
+            <p class="message" id="confirmationMessage"></p>
             <p class="message">Aguarde mais informações no grupo de whatsapp e prepare-se para o torneio. Estamos ansiosos para ver você em ação na quadra!</p>
             <a href="index.html" class="btn btn-primary return-button"><i class="bi bi-arrow-left-short"></i> Voltar à Página Inicial</a>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Recupera o nome do localStorage
+        const playerName = localStorage.getItem('playerName');
+
+        // Exibe o nome na mensagem
+        document.getElementById('confirmationMessage').textContent = `Obrigado por se inscrever no torneio de Beach Tennis Piquerobi, ${playerName}. Sua inscrição foi confirmada. Logo atualizaremos a lista de inscritos no site.`;
+        
+        // Remove o nome do localStorage após exibir a mensagem
+        localStorage.removeItem('playerName');
+    </script>
 </body>
 </html>
